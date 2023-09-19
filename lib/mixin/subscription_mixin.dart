@@ -3,12 +3,25 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import '../ext/duration_ext.dart';
+import '../utils/event_bus_util.dart';
 
 ///流统一管理
 mixin SubscriptionMixin<T extends StatefulWidget> on State<T> {
   final List<StreamSubscription> _streamList = [];
   final List<Timer> _timerList = [];
 
+
+  /// event 监听
+  StreamSubscription<T> eventListen<T>(ValueChanged<T> listen) {
+    final stream = EventBusUtil.eventBus.on<T>().listen((value) {
+      //页面销毁就不返回了
+      if (mounted) {
+        listen(value);
+      }
+    });
+    addStreamSubscription(stream);
+    return stream;
+  }
 
   void addStreamSubscription(StreamSubscription sub) {
     debugPrint('SubscriptionMixin, $this,StreamSubscription->$sub, add');
@@ -22,7 +35,7 @@ mixin SubscriptionMixin<T extends StatefulWidget> on State<T> {
 
   ///延迟处理
   ///@params milliSeconds 延迟多少毫秒执行
-  StreamSubscription dela(int milliSeconds, ValueChanged<T> listen) {
+  StreamSubscription delay(int milliSeconds, ValueChanged<T> listen) {
     final stream = Stream.fromFuture(Future.delayed(milliSeconds.toMilliSeconds)).listen((event) {
       if (mounted) {
         listen(event);

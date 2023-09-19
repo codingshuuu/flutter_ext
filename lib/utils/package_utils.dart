@@ -113,4 +113,9 @@ class PackageUtils {
     uuid = Md5Util.generateMd5(uuid);
     return uuid;
   }
+
+  @override
+  String toString() {
+    return 'PackageUtils{os: $os, osVersion: $osVersion, systemVersion: $systemVersion, version: $version, boundId: $boundId, versionCode: $versionCode, deviceName: $deviceName, deviceType: $deviceType, imeiId: $imeiId}';
+  }
 }

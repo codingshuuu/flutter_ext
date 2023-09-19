@@ -4,3 +4,6 @@
 
 ## 0.0.2
 - update plugin
+- 
+## 0.0.3
+- Improve some quotes

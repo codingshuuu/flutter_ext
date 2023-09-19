@@ -2,32 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-class ToastExt {
-  static void toast(
-    String? msg,
+extension ToastExt on String {
+  void toast({
     double? fontSize,
     ToastGravity? gravity,
     Color? backgroundColor,
     Color? textColor,
-  ) {
-    if (null == msg || msg.isEmpty) {
+  }) {
+    if (isEmpty) {
       return;
     }
     Fluttertoast.showToast(
-        msg: msg, fontSize: fontSize, gravity: gravity, backgroundColor: backgroundColor, textColor: textColor);
-  }
-}
-
-extension MToastExt on String {
-  void toast() {
-    if (isNotEmpty) {
-      Fluttertoast.showToast(msg: this);
-    }
+      msg: this,
+      gravity: gravity ?? ToastGravity.CENTER,
+      backgroundColor: backgroundColor ?? Colors.black54,
+      textColor: textColor ?? Colors.white,
+      fontSize: fontSize ?? 16.0,
+    );
   }
 
   ///复制到粘贴版
-  void copy2Clipboard() {
-    debugPrint('copy=>$this');
-    Clipboard.setData(ClipboardData(text: this));
+  Future<void> copy2Clipboard() {
+    return Clipboard.setData(ClipboardData(text: this));
   }
 }
