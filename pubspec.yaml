@@ -1,7 +1,7 @@
 name: awesome_ext
 description: Extends for plugin.
 version: 0.0.2
-author: CodingShuuu<codingshuuu@gmail.com>
+#author: CodingShuuu<codingshuuu@gmail.com>
 homepage: https://github.com/codingshuuu/flutter_ext.git
 
 environment:
@@ -18,18 +18,19 @@ dependencies:
   intl: ^0.18.1
   url_launcher: ^6.1.14
   fluttertoast: ^8.2.2
-  uuid: ^3.0.4
+  uuid: ^4.0.0
   md5_file_checksum: ^1.0.4
-  device_info_plus: ^3.2.3
-  package_info_plus: ^1.0.6
-  flutter_secure_storage: ^5.0.2
+  device_info_plus: ^9.0.3
+  # https://pub.dev/packages/package_info_plus
+  package_info_plus: ^4.1.0
+  flutter_secure_storage: ^9.0.0
   connectivity_plus: ^4.0.2
   logger: ^2.0.2
-  path_provider: ^2.0.5
-  sp_util: ^2.0.0
-  crypto: ^3.0.1
-  convert: ^3.0.1
-  path: ^1.8.0
+  path_provider: ^2.1.1
+  sp_util: ^2.0.3
+  crypto: ^3.0.3
+  convert: ^3.1.1
+  path: ^1.8.3
 
 
 

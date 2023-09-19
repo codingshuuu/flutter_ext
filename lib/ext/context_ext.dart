@@ -13,12 +13,6 @@ extension ContextExt on BuildContext {
   //系统颜色
   Color get themeColor => Theme.of(this).primaryColor;
 
-  //系统默认字体颜色
-  TextStyle? get textStyle => Theme.of(this).textTheme.bodyText2;
-
-  //系统加粗字体颜色
-  TextStyle? get textBoldStyle => Theme.of(this).textTheme.bodyText1;
-
   //导航栏高度,AppBarHeight
   double get appBarHeight => kToolbarHeight;
   

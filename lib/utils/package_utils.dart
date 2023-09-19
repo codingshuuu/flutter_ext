@@ -51,16 +51,14 @@ class PackageUtils {
     final DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
     if (Platform.isIOS) {
       final IosDeviceInfo iosInfo = await deviceInfo.iosInfo;
-      deviceName = Uri.encodeComponent(iosInfo.name ?? '');
+      deviceName = Uri.encodeComponent(iosInfo.name);
       os = 'iOS';
 
-      osVersion = '${double.tryParse(iosInfo.systemVersion ?? '0')?.toInt() ?? '0'}';
-      systemVersion = iosInfo.systemName ?? '';
+      osVersion = '${double.tryParse(iosInfo.systemVersion)?.toInt() ?? '0'}';
+      systemVersion = iosInfo.systemName;
 
-      osVersion = iosInfo.systemVersion ?? '';
-      deviceName = iosInfo.name ?? '';
-
-      // BaseConfig.isPad = iosInfo.utsname.machine.toLowerCase().contains("ipad");
+      osVersion = iosInfo.systemVersion;
+      deviceName = iosInfo.name;
     } else if (Platform.isAndroid) {
       final AndroidDeviceInfo androidDeviceInfo = await deviceInfo.androidInfo;
       deviceName =
@@ -68,9 +66,9 @@ class PackageUtils {
       os = 'Android';
 
       osVersion = '${androidDeviceInfo.version.sdkInt}';
-      systemVersion = androidDeviceInfo.version.release ?? '';
-      deviceName = androidDeviceInfo.model ?? '';
-      deviceType = androidDeviceInfo.brand ?? '';
+      systemVersion = androidDeviceInfo.version.release;
+      deviceName = androidDeviceInfo.model;
+      deviceType = androidDeviceInfo.brand;
     } else if (Platform.isMacOS) {
       final MacOsDeviceInfo macOsInfo = await deviceInfo.macOsInfo;
       deviceName = Uri.encodeComponent(macOsInfo.computerName);
@@ -96,13 +94,8 @@ class PackageUtils {
     String data = SpUtil.getString(_imei, defValue: value) ?? value;
 
     if (data.isEmpty) {
-      if (Platform.isAndroid) {
-        data = (await deviceInfo.androidInfo).androidId ?? '';
-      } else {
-        data = DateTime.now().millisecondsSinceEpoch.toString();
-        data += Random().nextInt(10000).toString();
-      }
-      data = Md5Util.generateMd5(data);
+      //Android也用随机数，androidId新政策需要申明非广告id，在隐私协议中申明并符合相关规定，这里直接用随机值
+      data = Md5Util.generateMd5(getUniqueID());
       SpUtil.putString(_imei, data);
       await storage.write(key: _imei, value: data);
     }

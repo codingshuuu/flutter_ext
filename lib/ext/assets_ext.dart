@@ -10,8 +10,8 @@ extension AssetsExt on String {
 
   ///参数[module] 为图片路径，
   ///return widget
-  Widget assetSvg({String module = 'common', double? width, double? height, Color? color}) {
-    return _assetSvg(module, width: width, height: height, color: color);
+  Widget assetSvg({String module = 'common', double? width, double? height, ColorFilter? colorFilter}) {
+    return _assetSvg(module, width: width, height: height, colorFilter: colorFilter);
   }
 
   ImageProvider assetProvider({String path = 'common'}) {
@@ -19,13 +19,14 @@ extension AssetsExt on String {
   }
 
   //svg 积累
-  Widget _assetSvg(String path, {double? width, double? height, Color? color}) {
+  Widget _assetSvg(String path, {double? width, double? height, ColorFilter? colorFilter}) {
     height ??= width;
     return SvgPicture.asset(
       _getCommonPath(format: 'svg', path: path),
       width: width,
       height: height,
-      color: color,
+      colorFilter: colorFilter,
+      // colorFilter: color == null ? null : ColorFilter.mode(color, BlendMode.srcIn),
     );
   }
 
