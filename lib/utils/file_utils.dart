@@ -104,9 +104,9 @@ class FileUtils {
   }
 
   static Future<int> cacheDirSize() async {
-    String _dir = (await getTemporaryDirectory()).path;
-    String _docDir = (await getApplicationDocumentsDirectory()).path;
-    return dirSize(_dir) + dirSize(_docDir);
+    String dir = (await getTemporaryDirectory()).path;
+    String docDir = (await getApplicationDocumentsDirectory()).path;
+    return dirSize(dir) + dirSize(docDir);
   }
 
   static int dirSize(String dirPath) {

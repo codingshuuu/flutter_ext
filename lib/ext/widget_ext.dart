@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_ext/ext/screen_ext.dart';
+import '../ext/screen_ext.dart';
 
 extension WidgetExt on Widget {
   addPostFrameCallback(FrameCallback frameCallback) {

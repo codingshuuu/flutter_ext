@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'string_ext.dart';
 
 extension TextEditingControllerExt on TextEditingController {
   void setText(String newText) {

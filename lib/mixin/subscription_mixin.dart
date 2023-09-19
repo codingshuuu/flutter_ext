@@ -2,7 +2,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_ext/ext/duration_ext.dart';
+import '../ext/duration_ext.dart';
 
 ///流统一管理
 mixin SubscriptionMixin<T extends StatefulWidget> on State<T> {
@@ -22,7 +22,7 @@ mixin SubscriptionMixin<T extends StatefulWidget> on State<T> {
 
   ///延迟处理
   ///@params milliSeconds 延迟多少毫秒执行
-  StreamSubscription delay<T>(int milliSeconds, ValueChanged<T> listen) {
+  StreamSubscription dela(int milliSeconds, ValueChanged<T> listen) {
     final stream = Stream.fromFuture(Future.delayed(milliSeconds.toMilliSeconds)).listen((event) {
       if (mounted) {
         listen(event);

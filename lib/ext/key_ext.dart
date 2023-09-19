@@ -32,7 +32,7 @@ extension KeyExt on GlobalKey {
         otherOffset.dx < offset.dx + size.width &&
         otherOffset.dy > offset.dy &&
         otherOffset.dy < offset.dy + size.height) {
-      print('otherOffset ${otherOffset.dy}');
+      debugPrint('otherOffset ${otherOffset.dy}');
       return true;
     }
 

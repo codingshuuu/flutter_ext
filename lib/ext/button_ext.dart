@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ext/ext/decoration_ext.dart';
-import 'package:flutter_ext/ext/screen_ext.dart';
-import 'package:flutter_ext/ext/style_ext.dart';
-import 'package:flutter_ext/ext/margin_ext.dart';
+import '../ext/decoration_ext.dart';
+import '../ext/screen_ext.dart';
+import '../ext/style_ext.dart';
+import '../ext/margin_ext.dart';
 
 extension ButtonExt on String {
   ///填充主题色, 按钮文字为白色

@@ -31,7 +31,7 @@ class LazyIndexedStack extends StatefulWidget {
       : super(key: key);
 
   @override
-  _LazyIndexedStackState createState() => _LazyIndexedStackState();
+  State createState() => _LazyIndexedStackState();
 }
 
 class _LazyIndexedStackState extends State<LazyIndexedStack> {

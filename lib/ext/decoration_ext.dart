@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ext/ext/screen_ext.dart';
+import '../ext/screen_ext.dart';
 
 extension DecorationDoubleExt on num {
   Decoration topLeftRightDecoration(Color color) {

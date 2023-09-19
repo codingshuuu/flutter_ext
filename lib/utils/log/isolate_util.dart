@@ -32,8 +32,8 @@ class IsolateUtil {
     logSendPost?.send(message);
   }
 
-  void intIsolate() async {
-    Isolate logIsolate = await Isolate.spawn(doWorkLog, IsolateUtil.mainReceivePort.sendPort);
+  Future<void> intIsolate() async {
+    await Isolate.spawn(doWorkLog, IsolateUtil.mainReceivePort.sendPort);
   }
 
   // 新的isolate中可以处理耗时任务

@@ -13,7 +13,7 @@ extension StringNullExt on String? {
 extension StringExt on String {
   //匹配中括号的内容
   static final RegExp _regex = RegExp(r'\[([^\[\]]*)\]');
-  static final RegExp _characterRegex = RegExp(r'[a-zA-Z]');
+  // static final RegExp _characterRegex = RegExp(r'[a-zA-Z]');
 
   //计算文本占用宽高
   double paintWidthWithTextStyle(TextStyle style, {double? maxWidth}) {

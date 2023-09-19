@@ -20,6 +20,5 @@
 - md5
 - 设备唯一值、uuid
 - 本地日志记录 LoggerUtil
+
 ---------
-call: cs
-email: codingshuuu@gmail.com

@@ -9,7 +9,6 @@ export 'decoration_ext.dart';
 export 'divider_ext.dart';
 export 'duration_ext.dart';
 export 'focus_node_ext.dart';
-export 'framework_ext.dart';
 export 'intent_ext.dart';
 export 'json_parse_ext.dart';
 export 'key_ext.dart';
