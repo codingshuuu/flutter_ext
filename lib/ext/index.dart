@@ -21,5 +21,6 @@ export 'string_ext.dart';
 export 'style_ext.dart';
 export 'text_editing_controller_ext.dart';
 export 'toast_ext.dart';
+export 'state_ext.dart';
 
 

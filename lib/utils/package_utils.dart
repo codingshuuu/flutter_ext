@@ -78,7 +78,7 @@ class PackageUtils {
     }
     final imei = await _getImei(deviceInfo);
     imeiId = imei;
-    debugPrint('imei=$imei');
+    debugPrint(toString());
   }
 
   Future<String> _getImei(DeviceInfoPlugin deviceInfo) async {

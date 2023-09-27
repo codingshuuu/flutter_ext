@@ -7,3 +7,8 @@
 - 
 ## 0.0.3
 - Improve some quotes
+- 
+## 0.0.4
+- Add route listener
+- device info
+- pair model
