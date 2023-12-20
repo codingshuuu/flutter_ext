@@ -12,7 +12,8 @@ import 'md5_utils.dart';
 
 class PackageUtils {
   late final Uuid _uuid = const Uuid();
-  static final PackageUtils instance = PackageUtils();
+  static final PackageUtils instance = PackageUtils._();
+  PackageUtils._();
   static const String _imei = 'IMEI';
   String os = '';
   String osVersion = '';
@@ -46,7 +47,7 @@ class PackageUtils {
     final PackageInfo info = await PackageUtils.instance.getPackageInfo();
     version = info.version;
     boundId = info.packageName;
-    versionCode = '${info.version}(${info.buildNumber})';
+    versionCode = '${info.buildNumber}';
 
     final DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
     if (Platform.isIOS) {

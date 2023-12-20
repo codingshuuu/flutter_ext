@@ -92,20 +92,20 @@ void _checkLongStr(dynamic message, Function func, {String? error}) {
   assert(() {
     var content = message.toString();
     if (content.length < 800) {
-      func(message, error);
+      func(message, error: error);
     } else {
       var i = 0;
       var title = '╔ $i ╗ ';
       while (content.length >= 800) {
         final str0 = title + content.substring(0, 800);
-        func(str0, error);
+        func(str0, error: error);
         content = content.substring(800, content.length);
         i += 1;
         title = '║ $i ║ ';
       }
       if (content.isNotEmpty) {
         final str = '╚ $i ╝: $content';
-        func(str, error);
+        func(str, error: error);
       }
     }
     return true;
