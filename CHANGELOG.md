@@ -12,3 +12,6 @@
 - Add route listener
 - device info
 - pair model
+
+## 0.0.5
+- fix logger
